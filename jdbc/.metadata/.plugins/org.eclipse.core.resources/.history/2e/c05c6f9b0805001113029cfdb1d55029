@@ -1,0 +1,42 @@
+package fruit;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Update {
+    public static void main(String[] args) {
+    	try {
+			
+		
+    		Class.forName("org.postgresql.Driver");
+			String url="jdbc:postgresql://localhost:5433/jdbc";
+			String username="postgres";
+			String password="root";
+		System.out.println("loaded");
+		
+		Connection c=DriverManager.getConnection(url,username,password);
+		System.out.println("connection created");
+		Statement s=c.createStatement();
+		System.out.println("statement created");
+		
+		int rowAffected=s.executeUpdate("update fruits set name='cherry' where id=1;");
+		if (rowAffected > 1) {
+			System.out.println("updtaed");
+		}
+		else {
+			System.out.println("not updated");
+		}
+		
+		c.close();
+		System.out.println("closed");
+    	} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+    	catch (SQLException e) {
+    		e.printStackTrace();
+			
+		}
+	}
+}

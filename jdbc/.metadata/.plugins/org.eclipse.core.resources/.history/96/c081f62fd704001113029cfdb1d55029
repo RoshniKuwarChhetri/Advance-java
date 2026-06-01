@@ -1,0 +1,36 @@
+package fruit;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Fruits {
+	public static void main(String[] args) {
+		
+	
+	try {
+	Class.forName("org.postgresql.Driver");
+	String url="jdbc:postgresql://localhost:5433/jdbc";
+	String username="postgres";
+	String password="root";
+	
+	Connection c = DriverManager.getConnection(url,username,password);
+	
+	Statement s= c.createStatement();
+	
+	
+	
+	
+	s.execute("create table fruit( id number primary key, name varchar , color varchar)");
+	c.close();
+	}
+	
+	catch(ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+	catch(SQLException e) {
+		e.printStackTrace();
+	}
+}
+}

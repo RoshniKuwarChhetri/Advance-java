@@ -1,0 +1,33 @@
+package fruit;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Delete {
+  public static void main(String[] args) {
+	try {
+		Class.forName("org.postgresql.Driver");
+		String url="jdbc:postgresql://localhost:5433/jdbc";
+		String username="postgres";
+		String password="root";
+		
+		Connection c =DriverManager.getConnection(url,username,password);
+		Statement s =c.createStatement();
+		int affectedrows=s.executeUpdate("delete from fruit where id=2;");
+		if(affectedrows >1) {
+			System.out.println("deleted");
+		}
+		else {
+			System.out.println("not deleted");
+		}
+	} catch (ClassNotFoundException e) {
+		
+		e.printStackTrace();
+	}catch (SQLException e) {
+		
+		e.printStackTrace();
+	}
+}
+}

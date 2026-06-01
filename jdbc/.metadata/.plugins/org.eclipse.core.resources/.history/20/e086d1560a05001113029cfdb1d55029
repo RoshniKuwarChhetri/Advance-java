@@ -1,0 +1,23 @@
+package fruit;
+
+import java.sql.SQLException;
+
+public class Fetch {
+	public static void main(String[] args) {
+		try {
+			Class.forName("org.postgresql.Driver");
+			String url="jdbc:postgresql://localhost:5433/jdbc";
+			String username="postgres";
+			String possword="root";
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

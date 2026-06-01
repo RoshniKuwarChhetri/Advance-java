@@ -1,0 +1,31 @@
+package fruit;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Insert {
+ public static void main(String[] args) {
+	try {
+		 Class.forName("org.postgresql.Driver");
+		 String url ="jdbc:postgresql://localhost:5233/jdbc";
+		 String username="postgres";
+		 String password ="root";
+		 
+		 Connection c= DriverManager.getConnection(url,username,password);
+		 Statement s =c.createStatement();
+		 
+		 int rowsaffected=s.executeUpdate("insert into fruits(1,'apple','red');");
+		 
+		 c.close();
+	}
+	catch(ClassNotFoundException e) {
+		e.getMessage();
+	}
+	catch(SQLException e) {
+		e.getMessage();
+		
+	}
+}
+}

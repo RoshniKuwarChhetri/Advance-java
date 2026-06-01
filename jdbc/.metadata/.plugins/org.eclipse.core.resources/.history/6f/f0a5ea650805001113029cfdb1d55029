@@ -1,0 +1,19 @@
+package fruit;
+
+import java.sql.SQLException;
+
+public class Update {
+    public static void main(String[] args) {
+    	try {
+			
+		
+		Class.forName("org.postgresql.Driver");
+		String url="jdbc:postgresql://localhost:"
+    	} catch (ClassNotFoundException e) {
+			
+		}
+    	catch (SQLException e) {
+			
+		}
+	}
+}
